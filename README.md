@@ -59,7 +59,7 @@ Flywheels have PIDF gains and motor configs:
 
 ## Relevant Files
 
-This template code can be leveraged by modifying three constants files and the Robot Container:
+This template code can be leveraged by modifying four constants files and the Robot Container:
 
 * TalonFXModuleConstants.java
   Modify example IDs and save PIDF coefficents
@@ -69,6 +69,9 @@ This template code can be leveraged by modifying three constants files and the R
 
 * PositionJointConstants.java
   Exact same instructions as above
+
+* DriveConstants.java
+  Configure IDs, hardware, and save IDF coefficents
 
 * RobotContainer.java
   Instantiate each subsystem, configure keybinds & autos, and add any other commands & triggers.
