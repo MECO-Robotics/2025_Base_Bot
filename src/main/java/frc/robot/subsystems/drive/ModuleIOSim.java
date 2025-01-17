@@ -35,6 +35,10 @@ public class ModuleIOSim implements ModuleIO {
   private double driveAppliedVolts = 0.0;
   private double turnAppliedVolts = 0.0;
 
+  /**
+   * Physics sim implementation of module IO. The sim models are configured using a set of module
+   * constants from Phoenix. Simulation is always based on voltage control.
+   */
   public ModuleIOSim() {
     // Create drive and turn sim models
     driveSim =

@@ -9,6 +9,10 @@ import org.ironmaple.simulation.drivesims.GyroSimulation;
 public class GyroIOSim implements GyroIO {
   private final GyroSimulation gyroSimulation;
 
+  /**
+   * Simulation implementation of the GyroIO interface.
+   * @param gyroSimulation The simulation hardware.
+   */
   public GyroIOSim(GyroSimulation gyroSimulation) {
     this.gyroSimulation = gyroSimulation;
   }

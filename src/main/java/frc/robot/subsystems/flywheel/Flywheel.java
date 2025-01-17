@@ -18,6 +18,12 @@ public class Flywheel extends SubsystemBase {
   private final LoggedTunableNumber kV;
   private final LoggedTunableNumber kA;
 
+  /**
+   * Constructs a new Flywheel subsystem.
+   *
+   * @param io the FlywheelIO instance hardware interface
+   * @param gains the FlywheelGains instance containing the PIDF gains
+   */
   public Flywheel(FlywheelIO io, FlywheelGains gains) {
     flywheel = io;
 
@@ -50,18 +56,38 @@ public class Flywheel extends SubsystemBase {
         kA);
   }
 
+  /**
+   * Sets the flywheel velocity setpoint.
+   *
+   * @param velocity the desired velocity in RPM
+   */
   public void setVelocity(double velocity) {
     flywheel.setVelocity(velocity);
   }
 
+  /**
+   * Sets the flywheel voltage.
+   *
+   * @param voltage the desired voltage in volts
+   */
   public void setVoltage(double voltage) {
     flywheel.setVoltage(voltage);
   }
 
+  /**
+   * Gets the flywheel velocity.
+   *
+   * @return the current velocity in RPM
+   */
   public double getVelocity() {
     return inputs.velocity;
   }
 
+  /**
+   * Gets the flywheel velocity setpoint.
+   *
+   * @return the desired velocity in RPM
+   */
   public double getVelocitySetpoint() {
     return inputs.desiredVelocity;
   }

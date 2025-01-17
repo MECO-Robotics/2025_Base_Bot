@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj.Alert.AlertType;
 import frc.robot.subsystems.flywheel.FlywheelConstants.FlywheelGains;
 import frc.robot.subsystems.flywheel.FlywheelConstants.FlywheelHardwareConfig;
 
+
 public class FlywheelIONeo implements FlywheelIO {
   private final String name;
 
@@ -36,6 +37,14 @@ public class FlywheelIONeo implements FlywheelIO {
 
   private FlywheelGains gains;
 
+  /**
+   * Neo motor implementation of the FlywheelIO interface.
+   * 
+   * @param name The name of the flywheel.
+   * @param config The hardware configuration of the flywheel.
+   * @see FlywheelIO
+   * @see FlywheelConstants
+   */
   public FlywheelIONeo(String name, FlywheelHardwareConfig config) {
     this.name = name;
 

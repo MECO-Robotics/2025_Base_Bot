@@ -58,6 +58,16 @@ public class Drive extends SubsystemBase {
   private SwerveDrivePoseEstimator poseEstimator =
       new SwerveDrivePoseEstimator(kinematics, rawGyroRotation, lastModulePositions, new Pose2d());
 
+  /**
+   * Constructs a new Swerve Drivetrain subsystem.
+   * 
+   * @param gyroIO The gyro hardware object
+   * @param flModuleIO The front left module hardware object
+   * @param frModuleIO The front right module hardware object
+   * @param blModuleIO The back left module hardware object
+   * @param brModuleIO The back right module hardware object
+   * @param odometryThread The thread to run odometry updates on
+   */
   public Drive(
       GyroIO gyroIO,
       ModuleIO flModuleIO,

@@ -105,8 +105,8 @@ public class RobotContainer {
                     VisionConstants.robotToCamera1,
                     driveSimulation::getSimulatedDriveTrainPose));
 
-        //TODO: Add subsystems
-        
+        // TODO: Add subsystems
+
         break;
 
       default:
@@ -121,7 +121,7 @@ public class RobotContainer {
                 null);
         vision = new Vision(drive::addVisionMeasurement, new VisionIO() {}, new VisionIO() {});
 
-        //TODO: Add default constructor subsystems
+        // TODO: Add default constructor subsystems
         break;
     }
 

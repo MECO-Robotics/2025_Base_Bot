@@ -3,7 +3,13 @@ package frc.robot.subsystems.drive;
 import edu.wpi.first.math.geometry.Rotation2d;
 import org.littletonrobotics.junction.AutoLog;
 
+/**
+ * The ModuleIO interface is a hardware abstraction for a swerve module.
+ */
 public interface ModuleIO {
+  /**
+   * The ModuleIOInputs class contains inputs and current state of a swerve module.
+   */
   @AutoLog
   public static class ModuleIOInputs {
     public boolean driveConnected = false;

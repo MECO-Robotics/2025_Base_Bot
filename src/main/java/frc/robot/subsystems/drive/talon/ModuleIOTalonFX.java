@@ -75,6 +75,7 @@ public class ModuleIOTalonFX implements ModuleIO {
   private final Debouncer turnConnectedDebounce = new Debouncer(0.5);
   private final Debouncer turnEncoderConnectedDebounce = new Debouncer(0.5);
 
+  
   public ModuleIOTalonFX(ModuleSpecificConfiguration constants) {
     driveTalon = new TalonFX(constants.driveCanID(), TalonFXModuleConstants.CANBusName);
     turnTalon = new TalonFX(constants.steerCanID(), TalonFXModuleConstants.CANBusName);

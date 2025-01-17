@@ -7,12 +7,14 @@ import edu.wpi.first.wpilibj.SPI;
 import frc.robot.subsystems.drive.talon.PhoenixOdometryThread;
 import java.util.Queue;
 
-/** IO implementation for NavX. */
 public class GyroIONavX implements GyroIO {
   private final AHRS navX = new AHRS(SPI.Port.kMXP, (byte) DriveConstants.odometryFrequency);
   private final Queue<Double> yawPositionQueue;
   private final Queue<Double> yawTimestampQueue;
 
+  /**
+   * NavX implementation of the GyroIO interface.
+   */
   public GyroIONavX() {
     yawTimestampQueue = PhoenixOdometryThread.getInstance().makeTimestampQueue();
     yawPositionQueue = PhoenixOdometryThread.getInstance().registerSignal(navX::getYaw);

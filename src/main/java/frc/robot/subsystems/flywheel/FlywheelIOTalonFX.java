@@ -54,6 +54,14 @@ public class FlywheelIOTalonFX implements FlywheelIO {
 
   private double velocitySetpoint = 0.0;
 
+  /**
+   * CTRE motor implementation of the FlywheelIO interface.
+   * 
+   * @param name The name of the flywheel.
+   * @param config The hardware configuration of the flywheel.
+   * @see FlywheelIO
+   * @see FlywheelConstants
+   */
   public FlywheelIOTalonFX(String name, FlywheelHardwareConfig config) {
     this.name = name;
 
