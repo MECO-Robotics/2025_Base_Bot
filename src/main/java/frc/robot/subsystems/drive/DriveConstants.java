@@ -34,22 +34,25 @@ public class DriveConstants {
 
   public static final double kSteerInertia = 0.004;
   public static final double kDriveInertia = 0.025;
-
+  // TODO: Replace speed
   public static final LinearVelocity maxSpeedAt12Volts =
       FeetPerSecond.of(15); // MK4i 16.5 ft/s L3 Kraken FOC With 14t pinion
 
+  // TODO: Replace these values
   // Drive motor configuration
   public static final int driveMotorCurrentLimit = 50;
   public static final double driveMotorGearRatio =
       1 / ((14.0 / 50.0) * (27.0 / 17.0) * (15.0 / 45.0)); // Mk4i L3 with 14t pinion
   public static final DCMotor driveGearbox = DCMotor.getKrakenX60Foc(1);
 
+  // TODO: Replace these values
   // Drive encoder configuration
   public static final double driveEncoderPositionFactor =
       2 * Math.PI / driveMotorGearRatio; // Rotor Rotations -> Wheel Radians
   public static final double driveEncoderVelocityFactor =
       (2 * Math.PI) / 60.0 / driveMotorGearRatio; // Rotor RPM -> Wheel Rad/Sec
 
+  // TODO: Replace these values
   // Turn motor configuration
   public static final double steerMotorGearRatio = 150.0 / 7.0; // MK4i
   public static final int turnMotorCurrentLimit = 20;
@@ -78,6 +81,8 @@ public class DriveConstants {
               1),
           moduleTranslations);
 
+  // TODO: Replace these values
+  // Maple simulation configuration
   public static final DriveTrainSimulationConfig mapleSimConfig =
       DriveTrainSimulationConfig.Default()
           .withCustomModuleTranslations(moduleTranslations)

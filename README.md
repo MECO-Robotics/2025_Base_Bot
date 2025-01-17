@@ -69,7 +69,7 @@ This template code can be leveraged by modifying three constants files and the R
 
 * PositionJointConstants.java
   Exact same instructions as above
-  
+
 * RobotContainer.java
   Instantiate each subsystem, configure keybinds & autos, and add any other commands & triggers.
 
