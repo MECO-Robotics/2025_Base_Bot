@@ -56,3 +56,21 @@ Flywheels have PIDF gains and motor configs:
 * HardwareConfig
   gearRatio: ratio of mechanism (radians or meters) to motor (rotations)
   gravity: GravityType.Constant for an elevator, and GravityType.COSINE for pivots. (This means that pivots must have a 0 position horizontal)
+
+## Relevant Files
+
+This template code can be leveraged by modifying three constants files and the Robot Container:
+
+* TalonFXModuleConstants.java
+  Modify example IDs and save PIDF coefficents
+
+* FlywheelConstants.java
+  Remove example coefficents and add coefficents for each subsystem
+
+* PositionJointConstants.java
+  Exact same instructions as above
+  
+* RobotContainer.java
+  Instantiate each subsystem, configure keybinds & autos, and add any other commands & triggers.
+
+The rest is classical WPIlib command-based FRC robot-code.

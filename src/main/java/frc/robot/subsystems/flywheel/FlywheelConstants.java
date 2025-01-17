@@ -6,9 +6,11 @@ public class FlywheelConstants {
   public record FlywheelHardwareConfig(
       int[] canIds, boolean[] reversed, double gearRatio, String canBus) {}
 
+  // TODO: Replace example gains with real values
   public static final FlywheelHardwareConfig EXAMPLE_CONFIG =
       new FlywheelHardwareConfig(new int[] {1}, new boolean[] {true}, 24.0 / 48.0, "CANBus");
 
+  // TODO: Replace example config with real values
   public static final FlywheelGains EXAMPLE_GAINS =
       new FlywheelGains(0.2, 0.0, 0.0, 0.0, 0.065, 0.0);
 }

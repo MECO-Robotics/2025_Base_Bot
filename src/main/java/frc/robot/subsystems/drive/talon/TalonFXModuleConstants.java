@@ -20,7 +20,7 @@ import frc.robot.subsystems.drive.DriveConstants;
 
 public class TalonFXModuleConstants {
   public static String CANBusName = "Drive";
-
+  // TODO: Save PID values permanently
   public static final Slot0Configs drivePIDConfig =
       new Slot0Configs().withKP(2).withKI(0).withKD(0).withKS(0.23).withKV(0.7).withKA(0.007);
 
@@ -40,6 +40,7 @@ public class TalonFXModuleConstants {
                   .withPeakForwardTorqueCurrent(slipCurrent.magnitude())
                   .withPeakReverseTorqueCurrent(-slipCurrent.magnitude()));
 
+  // TODO: Save PID values permanently
   private static final Slot0Configs turnPIDConfig =
       new Slot0Configs().withKP(30).withKI(0).withKD(0).withKS(0).withKV(0).withKA(0);
   private static final ClosedLoopGeneralConfigs ContinuousWrap = new ClosedLoopGeneralConfigs();
@@ -83,6 +84,7 @@ public class TalonFXModuleConstants {
       boolean invertDrive,
       boolean invertSteer) {}
 
+  // TODO: Update these values to match robot configuration
   public static final ModuleSpecificConfiguration frontLeft =
       new ModuleSpecificConfiguration(31, 41, 21, Rotations.of(-0.181640625 + 0.5), false, false);
   public static final ModuleSpecificConfiguration frontRight =

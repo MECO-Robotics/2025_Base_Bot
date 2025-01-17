@@ -45,9 +45,11 @@ public class PositionJointConstants {
       Rotation2d encoderOffset,
       String canBus) {}
 
+  // TODO: Replace example gains with real values
   public static final PositionJointGains EXAMPLE_GAINS =
       new PositionJointGains(1.5, 0.0, 0.0, 0.5, 1.0, 2.0, 0.0, 10.0, 20.0, 0.0, Math.PI, 0.2, 0.0);
 
+  // TODO: Replace example config with real values
   public static final PositionJointHardwareConfig EXAMPLE_CONFIG =
       new PositionJointHardwareConfig(
           new int[] {10},
