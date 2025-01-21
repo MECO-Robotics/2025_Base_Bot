@@ -21,6 +21,7 @@ public class GyroIOPigeon2 implements GyroIO {
   private final Queue<Double> yawTimestampQueue;
   private final StatusSignal<AngularVelocity> yawVelocity;
 
+  /** Pigeon 2 implementation of the GyroIO interface. */
   public GyroIOPigeon2(int canID) {
     pigeon = new Pigeon2(canID, TalonFXModuleConstants.CANBusName);
     pigeon.getConfigurator().apply(new Pigeon2Configuration());

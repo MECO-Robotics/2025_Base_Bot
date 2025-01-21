@@ -27,6 +27,12 @@ public class Module {
   private final LoggedTunableNumber kV;
   private final LoggedTunableNumber kA;
 
+  /**
+   * Constructs a new swerve module with the specified IO and index.
+   *
+   * @param io The ModuleIO hardware interface for the module.
+   * @param index The index of the module.
+   */
   public Module(ModuleIO io, int index) {
     this.io = io;
     this.index = index;

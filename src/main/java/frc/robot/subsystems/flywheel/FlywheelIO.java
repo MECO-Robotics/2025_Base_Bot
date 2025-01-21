@@ -4,6 +4,7 @@ import frc.robot.subsystems.flywheel.FlywheelConstants.FlywheelGains;
 import org.littletonrobotics.junction.AutoLog;
 
 public interface FlywheelIO {
+  /** The FlywheelIOInputs class contains inputs and current state of a flywheel. */
   @AutoLog
   public static class FlywheelIOInputs {
     public double velocity = 0.0;
