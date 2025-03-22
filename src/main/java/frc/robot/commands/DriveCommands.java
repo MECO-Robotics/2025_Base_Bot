@@ -325,21 +325,28 @@ public class DriveCommands {
                         vision.getLatestTargetObservation()[cameraNum].tx().getRadians(), 0.0);
 
                 Logger.recordOutput("Servo/TargetEffort", effort);
+                Logger.recordOutput("Servo/Error", yController.getPositionError());
 
                 speeds.vyMetersPerSecond = effort;
 
                 driverController.setRumble(RumbleType.kBothRumble, 1.0);
 
-                if (vision.getLatestTargetObservation()[cameraNum].ty().getDegrees() > 10) {
+                // if (vision.getLatestTargetObservation()[cameraNum].ty().getDegrees() > 10) {
+                // speeds.vxMetersPerSecond = APPROACH_SPEED.get();
+                // } else if (vision.getLatestTargetObservation()[cameraNum].ty().getDegrees() >
+                // -13) {
+                // speeds.vxMetersPerSecond = 0.5 * APPROACH_SPEED.get();
+
+                // } else {
+                // speeds.vxMetersPerSecond = 0;
+                // driverController.setRumble(RumbleType.kBothRumble, 0.0);
+                // }
+
+                if (yController.getPositionError() < 0.01) {
                   speeds.vxMetersPerSecond = APPROACH_SPEED.get();
-                } else if (vision.getLatestTargetObservation()[cameraNum].ty().getDegrees() > -13) {
-                  speeds.vxMetersPerSecond = 0.5 * APPROACH_SPEED.get();
-
                 } else {
-                  speeds.vxMetersPerSecond = 0;
-                  driverController.setRumble(RumbleType.kBothRumble, 0.0);
+                  speeds.vxMetersPerSecond = 0.2 * APPROACH_SPEED.get();
                 }
-
                 // if (angleController.atGoal()
                 // && Math.abs(vision.getLatestTargetObservation()[cameraNum].tx().getRadians())
                 // < 0.05) {

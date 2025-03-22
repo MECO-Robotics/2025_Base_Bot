@@ -575,14 +575,9 @@ public class RobotContainer {
         .povUp()
         .whileTrue(
             DriveCommands.joystickDriveRobotRelative(drive, () -> 0.5, () -> 0.0, () -> 0.0));
-    driverController
-        .povLeft()
-        .whileTrue(
-            DriveCommands.joystickDriveRobotRelative(drive, () -> 0.5, () -> 0.25, () -> 0.0));
-    driverController
-        .povRight()
-        .whileTrue(
-            DriveCommands.joystickDriveRobotRelative(drive, () -> 0.5, () -> -0.25, () -> 0.0));
+    driverController.povLeft().onTrue(ElevatorCommands.scoreReattempt(elbowMotor));
+
+    driverController.povRight().onTrue(ElevatorCommands.scorePreset(elbowMotor));
 
     driverController
         .axisGreaterThan(2, 0.3)
