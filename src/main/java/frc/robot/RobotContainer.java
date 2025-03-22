@@ -560,8 +560,11 @@ public class RobotContainer {
 
         driverController.povLeft().onTrue(ElevatorCommands.scoreReattempt(elbowMotor));
 
-        driverController.povRight().onTrue(ElevatorCommands.scorePreset(elbowMotor)
-                .andThen(Flywheel.setVoltage(endEffectorMotor, () -> 6.0).withTimeout(2)));
+        driverController
+                .povRight()
+                .onTrue(
+                        ElevatorCommands.scorePreset(elbowMotor)
+                                .andThen(Flywheel.setVoltage(endEffectorMotor, () -> -6.0).withTimeout(2)));
 
         driverController
                 .axisGreaterThan(2, 0.3)
