@@ -420,7 +420,12 @@ public class DriveCommands {
                         })));
   }
 
-  public static Command autoAlignAuto(Vision vision, String reefSide, String reefFace) {
+  public static Command autoAlignAuto(
+      Vision vision,
+      PositionJoint rightCoralRotationMotor,
+      PositionJoint leftCoralRotationMotor,
+      String reefSide,
+      String reefFace) {
     int cameraNum;
     switch (reefSide) {
       case "Left":
@@ -469,8 +474,10 @@ public class DriveCommands {
             })
         .beforeStarting(
             () ->
-                yController.reset(
-                    vision.getLatestTargetObservation()[cameraNum].tx().getRadians()));
+                yController.reset(vision.getLatestTargetObservation()[cameraNum].tx().getRadians()))
+        .alongWith(
+            IntakeCommands.deployIntakeAlign(rightCoralRotationMotor)
+                .alongWith(IntakeCommands.deployIntakeAlign(leftCoralRotationMotor)));
   }
 
   public static final Command pathfindToPose(Drive drive, Pose2d targetPose) {
