@@ -47,14 +47,15 @@ public class VisionIOPhotonVisionTrig implements VisionIO {
         inputs.latestTargetObservation =
             new TargetObservation(
                 Rotation2d.fromDegrees(result.getBestTarget().getYaw()),
-                Rotation2d.fromDegrees(result.getBestTarget().getPitch()));
+                Rotation2d.fromDegrees(result.getBestTarget().getPitch()),
+                result.getBestTarget().fiducialId);
 
         Transform3d cameraToTarget = result.getBestTarget().getBestCameraToTarget();
         // Transform3d bestFieldToRobot = bestFieldToCamera.plus(robotToCamera.inverse());
 
         double distance = cameraToTarget.getTranslation().getNorm();
 
-        double tx = -Units.degreesToRadians(result.getBestTarget().getYaw());
+        double tx = Units.degreesToRadians(result.getBestTarget().getYaw());
         double ty = Units.degreesToRadians(result.getBestTarget().getPitch());
 
         Rotation2d gyro = gyroRotationSupplier.get();
@@ -93,7 +94,8 @@ public class VisionIOPhotonVisionTrig implements VisionIO {
                 distance,
                 PoseObservationType.PHOTONVISION));
       } else {
-        inputs.latestTargetObservation = new TargetObservation(new Rotation2d(), new Rotation2d());
+        inputs.latestTargetObservation =
+            new TargetObservation(new Rotation2d(), new Rotation2d(), 0);
       }
     }
 

@@ -86,7 +86,7 @@ public class VisionIOQuestNav implements VisionIO {
     Logger.processInputs("QuestNav/absolute", absoluteInputs);
 
     inputs.connected = connected();
-    inputs.latestTargetObservation = new TargetObservation(new Rotation2d(), new Rotation2d());
+    inputs.latestTargetObservation = new TargetObservation(new Rotation2d(), new Rotation2d(), 0);
     inputs.poseObservations = new PoseObservation[questNavData.length];
 
     if (absoluteInputs.poseObservations.length > 0 && questNavData.length > 0) {

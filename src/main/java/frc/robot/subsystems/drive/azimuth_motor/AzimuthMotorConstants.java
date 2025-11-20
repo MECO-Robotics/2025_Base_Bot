@@ -8,14 +8,7 @@ public class AzimuthMotorConstants {
   public static final String canBusName = "Drive";
 
   public record AzimuthMotorGains(
-      double kP,
-      double kI,
-      double kD,
-      double kS,
-      double kV,
-      double kA,
-      double kMaxVelo,
-      double kMaxAccel) {}
+      double kP, double kI, double kD, double kS, double kV, double kA) {}
 
   public record AzimuthMotorHardwareConfig(
       int[] canIds,
@@ -71,15 +64,8 @@ public class AzimuthMotorConstants {
           Rotation2d.fromRotations(0),
           canBusName);
 
-  public static final AzimuthMotorGains FRONT_LEFT_GAINS =
-      new AzimuthMotorGains(25, 0, 0, 0, 2.5, 0, 5, 5);
+  public static final AzimuthMotorGains EXAMPLE_GAINS = new AzimuthMotorGains(25, 0, 0, 0, 2.5, 0);
 
-  public static final AzimuthMotorGains FRONT_RIGHT_GAINS =
-      new AzimuthMotorGains(25, 0, 0, 0, 2.5, 0, 5, 5);
-
-  public static final AzimuthMotorGains BACK_LEFT_GAINS =
-      new AzimuthMotorGains(25, 0, 0, 0, 2.5, 0, 5, 5);
-
-  public static final AzimuthMotorGains BACK_RIGHT_GAINS =
-      new AzimuthMotorGains(25, 0, 0, 0, 2.5, 0, 5, 5);
+  public static final AzimuthMotorGains EXAMPLE_GAINS_SIM =
+      new AzimuthMotorGains(35, 0, 0, 0.0, 3, 0);
 }

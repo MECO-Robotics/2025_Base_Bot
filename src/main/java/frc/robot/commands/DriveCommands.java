@@ -18,7 +18,6 @@ import edu.wpi.first.wpilibj2.command.Commands;
 import frc.robot.subsystems.drive.Drive;
 import frc.robot.subsystems.drive.DriveConstants;
 import frc.robot.util.mechanical_advantage.LoggedTunableNumber;
-
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.LinkedList;
@@ -27,15 +26,24 @@ import java.util.function.DoubleSupplier;
 import java.util.function.Supplier;
 
 public class DriveCommands {
-  private static final LoggedTunableNumber DEADBAND = new LoggedTunableNumber("DriveCommands/Deadband", 0.1);
-  private static final LoggedTunableNumber ANGLE_KP = new LoggedTunableNumber("DriveCommands/Angle_KP", 5.0);
-  private static final LoggedTunableNumber ANGLE_KD = new LoggedTunableNumber("DriveCommands/Angle_KD", 0.4);
-  private static final LoggedTunableNumber ANGLE_MAX_VELOCITY = new LoggedTunableNumber("DriveCommands/Angle_Max_Velocity", 8.0);
-  private static final LoggedTunableNumber ANGLE_MAX_ACCELERATION = new LoggedTunableNumber("DriveCommands/Angle_Max_Acceleration", 20.0);
-  private static final LoggedTunableNumber FF_START_DELAY = new LoggedTunableNumber("DriveCommands/FF_Start_Delay", 2.0); // Secs
-  private static final LoggedTunableNumber FF_RAMP_RATE = new LoggedTunableNumber("DriveCommands/FF_Ramp_Rate", 0.1); // Volts/Sec
-  private static final LoggedTunableNumber WHEEL_RADIUS_MAX_VELOCITY = new LoggedTunableNumber("DriveCommands/Wheel_Radius_Max_Velocity", 0.25); // Rad/Sec
-  private static final LoggedTunableNumber WHEEL_RADIUS_RAMP_RATE = new LoggedTunableNumber("DriveCommands/Wheel_Radius_Ramp_Rate", 0.05); // Rad/Sec^2
+  private static final LoggedTunableNumber DEADBAND =
+      new LoggedTunableNumber("DriveCommands/Deadband", 0.1);
+  private static final LoggedTunableNumber ANGLE_KP =
+      new LoggedTunableNumber("DriveCommands/Angle_KP", 5.0);
+  private static final LoggedTunableNumber ANGLE_KD =
+      new LoggedTunableNumber("DriveCommands/Angle_KD", 0.4);
+  private static final LoggedTunableNumber ANGLE_MAX_VELOCITY =
+      new LoggedTunableNumber("DriveCommands/Angle_Max_Velocity", 8.0);
+  private static final LoggedTunableNumber ANGLE_MAX_ACCELERATION =
+      new LoggedTunableNumber("DriveCommands/Angle_Max_Acceleration", 20.0);
+  private static final LoggedTunableNumber FF_START_DELAY =
+      new LoggedTunableNumber("DriveCommands/FF_Start_Delay", 2.0); // Secs
+  private static final LoggedTunableNumber FF_RAMP_RATE =
+      new LoggedTunableNumber("DriveCommands/FF_Ramp_Rate", 0.1); // Volts/Sec
+  private static final LoggedTunableNumber WHEEL_RADIUS_MAX_VELOCITY =
+      new LoggedTunableNumber("DriveCommands/Wheel_Radius_Max_Velocity", 0.25); // Rad/Sec
+  private static final LoggedTunableNumber WHEEL_RADIUS_RAMP_RATE =
+      new LoggedTunableNumber("DriveCommands/Wheel_Radius_Ramp_Rate", 0.05); // Rad/Sec^2
 
   private DriveCommands() {}
 
@@ -110,7 +118,8 @@ public class DriveCommands {
             ANGLE_KP.get(),
             0.0,
             ANGLE_KD.get(),
-            new TrapezoidProfile.Constraints(ANGLE_MAX_VELOCITY.get(), ANGLE_MAX_ACCELERATION.get()));
+            new TrapezoidProfile.Constraints(
+                ANGLE_MAX_VELOCITY.get(), ANGLE_MAX_ACCELERATION.get()));
     angleController.enableContinuousInput(-Math.PI, Math.PI);
 
     // Construct command
