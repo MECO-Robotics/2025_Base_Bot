@@ -154,7 +154,7 @@ public class VisionIOQuestNavNew implements VisionIO {
         pose.getTranslation()
             .minus(lastPose3d.getTranslation().minus(questNavRawToFieldCoordinateSystem));
 
-    // TODO: clarify if we need to have the robot to camera 
+    // TODO: clarify if we need to have the robot to camera
     questNav.setPose(pose.transformBy(robotToCamera));
 
     count = 0;

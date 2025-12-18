@@ -22,15 +22,13 @@ import frc.robot.subsystems.drive.drive_motor.DriveMotorIOReplay;
 import frc.robot.subsystems.drive.drive_motor.DriveMotorIOSim;
 import frc.robot.subsystems.drive.drive_motor.DriveMotorIOTalonFX;
 import frc.robot.subsystems.drive.gyro.GyroIO;
-import frc.robot.subsystems.drive.gyro.GyroIOPigeon2;
+import frc.robot.subsystems.drive.gyro.GyroIONavX;
 import frc.robot.subsystems.drive.odometry_threads.PhoenixOdometryThread;
 import frc.robot.subsystems.vision.Vision;
 import frc.robot.subsystems.vision.VisionConstants;
 import frc.robot.subsystems.vision.VisionIO;
 import frc.robot.subsystems.vision.VisionIOPhotonVisionSim;
-import frc.robot.subsystems.vision.VisionIOPhotonVisionTrig;
-import frc.robot.subsystems.vision.VisionIOQuestNavNew;
-
+import frc.robot.subsystems.vision.VisionIOQuestNavRelative;
 import org.littletonrobotics.junction.networktables.LoggedDashboardChooser;
 
 /**
@@ -62,7 +60,7 @@ public class RobotContainer {
         // the Phoenix Odometry Thread, if using a combination of the two, set up both
         drive =
             new Drive(
-                new GyroIOPigeon2(0, "Drive"),
+                new GyroIONavX(),
                 new Module(
                     new DriveMotorIOTalonFX(
                         "FrontLeftDrive", DriveMotorConstants.FRONT_LEFT_CONFIG),
@@ -89,10 +87,7 @@ public class RobotContainer {
         vision =
             new Vision(
                 drive::addVisionMeasurement,
-                new VisionIOQuestNavNew(VisionConstants.robotToCamera0,
-                new VisionIOPhotonVisionTrig(VisionConstants.camera1Name,
-                VisionConstants.robotToCamera1,
-                drive::getRotation)));
+                new VisionIOQuestNavRelative(VisionConstants.robotToCamera0));
         break;
 
       case SIM:
