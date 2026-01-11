@@ -18,7 +18,6 @@ import edu.wpi.first.units.measure.LinearVelocity;
 import frc.robot.subsystems.drive.azimuth_motor.AzimuthMotorConstants;
 import frc.robot.subsystems.drive.drive_motor.DriveMotorConstants;
 import frc.robot.subsystems.drive.tank_drive.TankDriveConstants;
-
 import org.ironmaple.simulation.drivesims.COTS;
 import org.ironmaple.simulation.drivesims.SwerveModuleSimulation;
 import org.ironmaple.simulation.drivesims.configs.DriveTrainSimulationConfig;
@@ -26,9 +25,9 @@ import org.ironmaple.simulation.drivesims.configs.SwerveModuleSimulationConfig;
 
 public class DriveConstants {
   public static final double odometryFrequency =
-     (new CANBus(DriveMotorConstants.canBusName).isNetworkFD()
-              && new CANBus(AzimuthMotorConstants.canBusName).isNetworkFD()) ||
-              new CANBus(TankDriveConstants.canBusName).isNetworkFD()
+      (new CANBus(DriveMotorConstants.canBusName).isNetworkFD()
+                  && new CANBus(AzimuthMotorConstants.canBusName).isNetworkFD())
+              || new CANBus(TankDriveConstants.canBusName).isNetworkFD()
           ? 250.0
           : 100.0; // If both Azimuth and Drive use CANFD, sample odometry at 250 Hz, if either loop
   // is not FD, sample odometry at 100 Hz

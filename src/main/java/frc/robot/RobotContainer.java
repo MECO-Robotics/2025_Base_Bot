@@ -1,14 +1,13 @@
 package frc.robot;
 
-import edu.wpi.first.math.Matrix;
-import edu.wpi.first.math.geometry.Pose2d;
-import edu.wpi.first.math.numbers.N1;
-import edu.wpi.first.math.numbers.N3;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import frc.robot.subsystems.drive.gyro.GyroIONavX;
+import frc.robot.subsystems.drive.tank_drive.TankDrive;
+import frc.robot.subsystems.drive.tank_drive.TankDriveIOSpark;
 import frc.robot.subsystems.vision.Vision;
 import frc.robot.subsystems.vision.VisionConstants;
 import frc.robot.subsystems.vision.VisionIOPhotonVision;
@@ -23,6 +22,7 @@ import frc.robot.subsystems.vision.VisionIOQuestNavNew;
 public class RobotContainer {
   // Subsystems
   // private final Drive drive;
+  private final TankDrive drive;
 
   @SuppressWarnings("unused")
   private final Vision vision;
@@ -32,11 +32,6 @@ public class RobotContainer {
 
   // Dashboard inputs
   //   private final LoggedDashboardChooser<Command> autoChooser;
-
-  public void addVisionMeasurement(
-      Pose2d visionRobotPoseMeters,
-      double timestampSeconds,
-      Matrix<N3, N1> visionMeasurementStdDevs) {}
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -72,9 +67,11 @@ public class RobotContainer {
         //     AzimuthMotorConstants.EXAMPLE_GAINS,
         //     PhoenixOdometryThread.getInstance(),
         //     null);
+
+        drive = new TankDrive(new TankDriveIOSpark(), new GyroIONavX());
         vision =
             new Vision(
-                this::addVisionMeasurement,
+                drive::addVisionMeasurement,
                 new VisionIOQuestNavNew(
                     VisionConstants.robotToCamera0,
                     new VisionIOPhotonVision("camera", VisionConstants.robotToCamera1)));
@@ -105,6 +102,8 @@ public class RobotContainer {
         //         null,
         //         null);
 
+        drive = null;
+
         vision = null;
         break;
 
@@ -130,6 +129,8 @@ public class RobotContainer {
         //         null,
         //         null,
         //         null);
+
+        drive = null;
         vision = null;
         break;
     }

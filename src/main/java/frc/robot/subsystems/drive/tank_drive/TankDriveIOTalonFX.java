@@ -93,16 +93,12 @@ public class TankDriveIOTalonFX implements TankDriveIO {
     inputs.leftPositionRad = Units.rotationsToRadians(leftPosition.getValueAsDouble());
     inputs.leftVelocityRadPerSec = Units.rotationsToRadians(leftVelocity.getValueAsDouble());
     inputs.leftAppliedVolts = leftAppliedVolts.getValueAsDouble();
-    inputs.leftCurrentAmps =
-        new double[] {leftLeaderCurrent.getValueAsDouble()};
+    inputs.leftCurrentAmps = new double[] {leftLeaderCurrent.getValueAsDouble()};
 
     inputs.rightPositionRad = Units.rotationsToRadians(rightPosition.getValueAsDouble());
     inputs.rightVelocityRadPerSec = Units.rotationsToRadians(rightVelocity.getValueAsDouble());
     inputs.rightAppliedVolts = rightAppliedVolts.getValueAsDouble();
-    inputs.rightCurrentAmps =
-        new double[] {
-          rightLeaderCurrent.getValueAsDouble()
-        };
+    inputs.rightCurrentAmps = new double[] {rightLeaderCurrent.getValueAsDouble()};
   }
 
   @Override
